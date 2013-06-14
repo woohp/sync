@@ -1,5 +1,8 @@
 class Book < ActiveRecord::Base
   attr_accessible :author, :title
 
-  acts_as_syncable
+  has_many :chapters
+  has_many :reviews
+
+  acts_as_syncable dependent: :chapters
 end
